@@ -1,4 +1,4 @@
-##  **gRPC Architecture Monorepo_with_Bazel Tooling**  
+##  **gRPC Architecture Monorepo & Bazel Tooling**  
 
 Example taken from the paperback book "GRPC Go for Professionals" by software engineer Clement Jean - PacktPublishing 2023.<br>
 
