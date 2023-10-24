@@ -3,7 +3,7 @@
 Example taken from the paperback book "GRPC Go for Professionals" by software engineer Clement Jean - PacktPublishing 2023.<br>
 
 Bazel can be a little bit cumbersome to set up but it is worth the effort.<br>
-Once  you have your build system set-up and running , you will be able to build the wholer application (generate & build)<br>
+Once  you have your build system set-up , you will be able to build the whole application (generate & build)<br>
 and/or run it in one command.<br>
 
 
