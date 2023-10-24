@@ -1,1 +1,28 @@
+# In here , we are going to use a Gazelle command that will detect all the dependencies needed for our project and dump them 
+# in a file called 'deps.bzl" 
+# The command `bazel run //:gazelle-update-repos` will synchronize Go dependencies with `go.mod` . 
 
+load("@bazel_gazelle//:def.bzl", "gazelle") 
+
+# gazelle:exclude proto/**/*.go # we are instructing Gazelle to ignore the Go files in the `proto` directory ., giving us more control over how the Protobuf-related Go files are built and managed.
+
+# gazelle:prefix github.com/PakcktPublishing/gRPC-Go-for-Professionals
+gazelle(name ="gazelle") 
+
+gazelle(
+    name ="gazelle-update-repos", 
+args = [ 
+  "-from_file=go.work", 
+  "-to_macro=deps.bzl%go_dependencies",
+  "-prune",
+  "-build_file_proto_mode=disable_global", 
+], 
+command = "update-repos", 
+) 
+
+# The `-build_file_proto_mode=disable_global` option in the `gazelle` rule is used to 
+# control how Gazelle generates BUILD files for Protocol Buffers in our project . 
+
+# Breakdown of the option : 
+    - `-build_file_proto_mode` : flag telling Gazelle how to generate BUILD files for ProtoBuf definitions . 
+    - ` disable_global` : value meaning that Gazelle should not generate BUILD filers for `.proto` files in a global scope .
